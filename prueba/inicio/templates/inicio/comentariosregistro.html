@@ -1,0 +1,43 @@
+{% extends "inicio/encabezado.html"%}
+{% block titulo %}Contacto{% endblock %}
+{% load static %}
+{% block imagen_menu %}{% static 'inicio/images/contacto.png'%}{% endblock %}
+{% block info %}Contacto{%endblock%}
+
+{% block contenido %}
+			<!--Encabezdo -->
+			<div class="page-header">
+				<div class="page-title">
+					<h3>Comentario
+				    <small>Tabla de comentario </small></h3>
+				</div>
+
+				
+			</div>
+			<!-- /Encabezado-->
+{% endblock %}
+
+{%block contenido2%}
+        <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Mensaje</th>
+<th>Editar</th>
+<th>Eliminar</th>
+</tr>
+</thead>
+<tbody>
+{% for comentariocontacto in comentarios %}
+
+<tr>
+
+<td class="text-semibold">{{comentariocontacto.usuario}}</td>
+<td class="muted">{{comentariocontacto.mensaje}}</td>
+<td class="muted">{{comentariocontacto.editar}}</td>
+<td class="muted">{{comentariocontacto.eliminar}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{%endblock%}

@@ -20,3 +20,6 @@ def ejemplo(request):
 
 def registros(request):
     return render(request, "registros/principal.html")
+
+def comentariosregistro(request):
+    return render(request, "registros/comentariosregistro.html")

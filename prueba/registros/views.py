@@ -1,27 +1,35 @@
 from django.shortcuts import render
-from .models import Alumnos
+from .models import Alumnos, ComentarioContacto
 from .forms import ComentarioContactoForm
-#Accedemos al modelo Alumnos que contiene la estructura de la tabla.
+
 # Create your views here.
+
 def registros(request):
-
-    alumnos=Alumnos.objects.all()
-
-#all recupera todos los objetos del modelo (registros de la tabla alumnos)
-    return render(request,"registros/principal.html",{'alumnos':alumnos})
-#Indicamos el lugar donde se renderizará el resultado de esta vista
-# y enviamos la lista de alumnos recuparados
+    alumnos = Alumnos.objects.all()
+    return render(request, "registros/principal.html", {'alumnos': alumnos})
 
 
 def registrar(request):
     if request.method == 'POST':
         form = ComentarioContactoForm(request.POST)
-        if form.is_valid(): #si los datos recicidos son correctos
-            form.save() #inserta
-            return render(request, 'registros/contacto.html')
+        if form.is_valid(): 
+            form.save() # Guarda los datos en la base de datos
+            
+            # Recuperamos los datos actualizados usando el Modelo y enviando la clave exacta
+            comentarios = ComentarioContacto.objects.all()
+            return render(request, 'registros/comentariosregistro.html', {'comentariocontactos': comentarios})
+    else:
         form = ComentarioContactoForm()
-        #si sale mal se reenvian al formulario los datos ingresados
+        
     return render(request, 'registros/contacto.html', {'form': form})
 
+
 def contacto(request):
-    return render(request,"registros/contacto.html")
+    # 👈 Devolvemos la función que faltaba para revivir el servidor
+    return render(request, "registros/contacto.html")
+
+
+def comentariosregistro(request):
+    # Consulta impecable que mapea con tu tabla HTML
+    datos_comentarios = ComentarioContacto.objects.all() 
+    return render(request, 'registros/comentariosregistro.html', {'comentariocontactos': datos_comentarios})
