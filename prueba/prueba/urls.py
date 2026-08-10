@@ -29,8 +29,34 @@ urlpatterns = [
     path('formulario/', views.formulario, name="Formulario"),
     path('ejemplo/', views.ejemplo, name="Ejemplo"),
     path('registrar/', views_registros.registrar, name="Registrar"),
+    
    # Cambia 'views.' por 'views_registros.'
+    
     path('comentariosregistro/', views_registros.comentariosregistro, name="ComentariosRegistro"),
+    path('confirmarEliminar/<int:id>/', views_registros.eliminarComentarioContacto, name='Eliminar'),
+    path('formEditarComentario/<int:id>/', views_registros.ConsultarComentarioIndividual, name='ConsultaIndividual'),
+    path('editarComentario/<int:id>/', views_registros.editarComentarioContacto, name='Editar'),
+    path('consultas/', views_registros.consultas, name="Consultas"),
+    path('consultas1/', views_registros.consultar1, name="Consultas1"),
+    path('consultas2/', views_registros.consultar2, name="Consultas2"),
+    path('consultas3/', views_registros.consultar3, name="Consultas3"),
+    path('consultas4/', views_registros.consultar4, name="Consultas4"),
+    path('consultas5/', views_registros.consultar5, name="Consultas5"),
+    path('consultas6/', views_registros.consultar6, name="Consultas6"),
+    path('consultas7/', views_registros.consultar7, name="Consultas7"),
+    path('consultas8/', views_registros.consultar8, name="Consultas8"),
+    path('consultasSQL/', views_registros.consultasSQL, name="ConsultasSQL"),
+    path('consulta_rango_fechas/', views_registros.consulta_rango_fechas, name="ConsultaRangoFechas"),
+    path('consulta_rango_fechas_sql/', views_registros.consulta_rango_fechas_sql, name="ConsultaRangoFechasSQL"),
+    path('consulta_expresion_comentario/', views_registros.consulta_expresion_comentario, name="ConsultaExpresionComentario"),
+    path('consulta_expresion_comentario_sql/', views_registros.consulta_expresion_comentario_sql, name="ConsultaExpresionComentarioSQL"),
+    path('consulta_por_usuario/', views_registros.consulta_por_usuario, name="ConsultaPorUsuario"),
+    path('consulta_por_usuario_sql/', views_registros.consulta_por_usuario_sql, name="ConsultaPorUsuarioSQL"),
+    path('consulta_expresion_year/', views_registros.consulta_expresion_year, name="ConsultaExpresionYear"),
+    path('consulta_expresion_year_sql/', views_registros.consulta_expresion_year_sql, name="ConsultaExpresionYearSQL"),
+    path('consulta_expresion_startswith/', views_registros.consulta_expresion_startswith, name="ConsultaExpresionStartswith"),
+    path('consulta_expresion_startswith_sql/', views_registros.consulta_expresion_startswith_sql, name="ConsultaExpresionStartswithSQL"),
+    path('subir', views_registros.archivos, name="Subir"),
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static 

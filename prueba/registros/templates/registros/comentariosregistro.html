@@ -32,8 +32,8 @@
 <tr>
     <td class="text-semibold">{{ comentariocontacto.usuario }}</td>
     <td class="muted">{{ comentariocontacto.mensaje }}</td>
-    <td class="muted">{{ comentariocontacto.editar }}</td>
-    <td class="muted">{{ comentariocontacto.eliminar }}</td>
+    <td class="muted"><button class="btn btn-primary"><a href="{% url 'Editar' comentariocontacto.id %}" style="color: white;">Editar</a></button></td>
+    <td class="muted"><button class="btn btn-danger"><a href="{% url 'Eliminar' comentariocontacto.id %}" style="color: white;">Eliminar</a></button></td>
 </tr>
 {% endfor %}
 </tbody>

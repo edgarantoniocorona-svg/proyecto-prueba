@@ -1,0 +1,28 @@
+{% extends "inicio/encabezado.html"%}
+{% block titulo %}Confirmar Eliminación{% endblock %}
+{% block info %}Confirmar Eliminación{% endblock %}
+{% load static %}
+
+{% block imagen_menu %}{% static 'inicio/images/eliminar.png'%}{% endblock %}
+
+{% block contenido %}
+            <!--Encabezdo -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h3>Confirmar Eliminación
+                    <small>¿Está seguro de que desea eliminar este comentario?</small></h3>
+                </div>
+
+                
+            </div>
+            <!-- /Encabezado-->
+{% endblock %}
+
+{%block contenido2%}
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Está seguro de que desea eliminar el comentario?</p>
+        <button type="submit" class="btn btn-danger">si</button>
+        <a href="{% url 'ComentariosRegistro' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{%endblock%}

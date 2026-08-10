@@ -23,3 +23,4 @@ def registros(request):
 
 def comentariosregistro(request):
     return render(request, "registros/comentariosregistro.html")
+    
